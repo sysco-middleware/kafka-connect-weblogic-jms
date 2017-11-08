@@ -21,7 +21,7 @@ final class WebLogicJmsConfig {
             .define(
                 WebLogicJmsConnector.WEBLOGIC_JMS_DESTINATION_TYPE_CONFIG,
                 ConfigDef.Type.STRING,
-                WebLogicJms.Destination.Type.QUEUE.name(),
+                WebLogicJmsConnector.WEBLOGIC_JMS_DESTINATION_TYPE_DEFAULT,
                 ConfigDef.Importance.HIGH,
                 WebLogicJmsConnector.WEBLOGIC_JMS_DESTINATION_TYPE_DOC)
             .define(
@@ -37,15 +37,9 @@ final class WebLogicJmsConfig {
             .define(
                 WebLogicJmsConnector.WEBLOGIC_JMS_ACKNOWLEDGE_MODE_CONFIG,
                 ConfigDef.Type.STRING,
-                WebLogicJms.WebLogicJmsSession.AcknowledgmentMode.AUTO_ACKNOWLEDGE.name(),
+                WebLogicJmsConnector.WEBLOGIC_JMS_ACKNOWLEDGE_MODE_DEFAULT,
                 ConfigDef.Importance.MEDIUM,
                 WebLogicJmsConnector.WEBLOGIC_JMS_ACKNOWLEDGE_MODE_DOC)
-            .define(
-                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_CONFIG,
-                ConfigDef.Type.STRING,
-                null,
-                ConfigDef.Importance.LOW,
-                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_DOC)
             .define(
                 WebLogicJmsConnector.WEBLOGIC_T3_URL_DESTINATION_CONFIG,
                 ConfigDef.Type.STRING,
@@ -60,10 +54,5 @@ final class WebLogicJmsConfig {
                 WebLogicJmsConnector.WEBLOGIC_PASSWORD_CONFIG,
                 ConfigDef.Type.STRING,
                 ConfigDef.Importance.HIGH,
-                WebLogicJmsConnector.WEBLOGIC_PASSWORD_DOC)
-            .define(
-                WebLogicJmsConnector.KAFKA_TOPIC_CONFIG,
-                ConfigDef.Type.STRING,
-                ConfigDef.Importance.MEDIUM,
-                WebLogicJmsConnector.KAFKA_TOPIC_DOC);
+                WebLogicJmsConnector.WEBLOGIC_PASSWORD_DOC);
 }
