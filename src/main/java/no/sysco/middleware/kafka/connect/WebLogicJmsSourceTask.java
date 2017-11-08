@@ -35,9 +35,9 @@ public class WebLogicJmsSourceTask extends SourceTask implements WebLogicJmsTask
             messageConsumer = webLogicJmsSession.createConsumer(weblogicJmsSelector);
         } catch (JMSException e) {
             e.printStackTrace();
-            throw new RuntimeException(e); //TODO fix
+            throw new RuntimeException(e);
         }
-        kafkaTopic = props.getOrDefault(KAFKA_TOPIC_PREFIX_CONFIG, props.get(WEBLOGIC_JMS_DESTINATION_CONFIG));
+        kafkaTopic = props.get(KAFKA_TOPIC_PREFIX_CONFIG) + props.get(WEBLOGIC_JMS_DESTINATION_CONFIG);
     }
 
     public List<SourceRecord> poll() throws InterruptedException {
