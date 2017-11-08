@@ -30,9 +30,10 @@ public class WebLogicJmsSinkConnector extends SinkConnector implements WebLogicJ
     }
 
     public List<Map<String, String>> taskConfigs(int maxTasks) {
-        ArrayList<Map<String, String>> configs = new ArrayList<>();
-        Map<String, String> taskConfigs = new HashMap<>();
+        final Map<String, String> taskConfigs = new HashMap<>();
         taskConfigs.putAll(configProps);
+
+        final ArrayList<Map<String, String>> configs = new ArrayList<>();
         configs.add(taskConfigs);
         return configs;
     }

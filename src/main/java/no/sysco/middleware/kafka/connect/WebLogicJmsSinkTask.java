@@ -47,7 +47,11 @@ public class WebLogicJmsSinkTask extends SinkTask implements WebLogicJmsTask {
     private TextMessage getTextMessage(SinkRecord sinkRecord) {
         try {
             final String payload = sinkRecord.value().toString();
-            return webLogicJmsSession.session().createTextMessage(payload);
+            final TextMessage textMessage = webLogicJmsSession.session().createTextMessage(payload);
+            textMessage.setStringProperty("kafka-topic", sinkRecord.topic());
+            textMessage.setIntProperty("kafka-partition", sinkRecord.kafkaPartition());
+            textMessage.setLongProperty("kafka-offset", sinkRecord.kafkaOffset());
+            return textMessage;
         } catch (JMSException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
