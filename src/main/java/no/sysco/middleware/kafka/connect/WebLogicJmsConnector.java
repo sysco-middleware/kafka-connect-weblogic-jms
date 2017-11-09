@@ -24,7 +24,7 @@ public interface WebLogicJmsConnector {
     String WEBLOGIC_JMS_MODULE_DOC = "Provides the JMS Module name";
     String WEBLOGIC_JMS_ACKNOWLEDGE_MODE_CONFIG = CONNECT_WEBLOGIC_JMS_PREFIX + "acknowledge.mode";
     String WEBLOGIC_JMS_ACKNOWLEDGE_MODE_DOC = "Provides the JMS Acknowledge Mode";
-    String WEBLOGIC_JMS_ACKNOWLEDGE_MODE_DEFAULT = WebLogicJms.WebLogicJmsSession.AcknowledgmentMode.AUTO_ACKNOWLEDGE.name();
+    String WEBLOGIC_JMS_ACKNOWLEDGE_MODE_DEFAULT = WebLogicJms.WebLogicJmsSession.AcknowledgeMode.AUTO_ACKNOWLEDGE.name();
     String WEBLOGIC_JMS_SELECTOR_CONFIG = CONNECT_WEBLOGIC_JMS_PREFIX + "selector";
     String WEBLOGIC_JMS_SELECTOR_DOC = "Provides the JMS Selector filter";
     String WEBLOGIC_JMS_SELECTOR_DEFAULT = null;

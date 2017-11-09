@@ -52,8 +52,8 @@ public interface WebLogicJmsTask extends WebLogicJmsConnector {
 
         final WebLogicJms.Credentials credentials =
             new WebLogicJms.Credentials(weblogicUsername, weblogicPassword);
-        final WebLogicJms.WebLogicJmsSession.AcknowledgmentMode acknowledgmentMode =
-            WebLogicJms.WebLogicJmsSession.AcknowledgmentMode.valueOf(acknowledgeMode);
+        final WebLogicJms.WebLogicJmsSession.AcknowledgeMode acknowledgmentMode =
+            WebLogicJms.WebLogicJmsSession.AcknowledgeMode.valueOf(acknowledgeMode);
 
         try {
             return WebLogicJms.openSession(connectionFactory, credentials, destination, acknowledgmentMode);

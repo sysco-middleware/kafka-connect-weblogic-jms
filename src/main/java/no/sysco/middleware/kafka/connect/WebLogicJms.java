@@ -19,18 +19,18 @@ final class WebLogicJms {
      * @param connectionFactory JMS Connection Factory.
      * @param credentials WebLogic Credentials.
      * @param destination JMS Destination, Queue or Topic.
-     * @param acknowledgmentMode JMS Acknowledgment Mode.
+     * @param acknowledgeMode JMS Acknowledgment Mode.
      * @return a JMS Session
      * @throws JMSException if an error with the JMS Connection occur.
      */
     static WebLogicJmsSession openSession(ConnectionFactory connectionFactory,
                                           Credentials credentials,
                                           Destination destination,
-                                          WebLogicJmsSession.AcknowledgmentMode acknowledgmentMode)
+                                          WebLogicJmsSession.AcknowledgeMode acknowledgeMode)
         throws JMSException {
         final Connection connection = connectionFactory.createConnection(credentials.username, credentials.password);
         connection.start();
-        final Session session = connection.createSession(false, acknowledgmentMode.ack);
+        final Session session = connection.createSession(false, acknowledgeMode.ack);
         final javax.jms.Destination jmsDestination = destination.build(session);
         return new WebLogicJmsSession(connection, session, jmsDestination);
     }
@@ -151,7 +151,7 @@ final class WebLogicJms {
         /**
          * Valid JMS Acknowledgment Mode.
          */
-        enum AcknowledgmentMode {
+        enum AcknowledgeMode {
             AUTO_ACKNOWLEDGE(1),
             CLIENT_ACKNOWLEDGE(2),
             DUPS_OK_ACKNOWLEDGE(3),
@@ -159,7 +159,7 @@ final class WebLogicJms {
 
             private final int ack;
 
-            AcknowledgmentMode(int ack) {
+            AcknowledgeMode(int ack) {
                 this.ack = ack;
             }
         }

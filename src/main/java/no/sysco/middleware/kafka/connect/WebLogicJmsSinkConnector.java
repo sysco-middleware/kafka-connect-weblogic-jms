@@ -13,7 +13,7 @@ import java.util.Map;
  * WebLogic JMS Sink Connector implementation.
  */
 public class WebLogicJmsSinkConnector extends SinkConnector implements WebLogicJmsConnector {
-    private final ConfigDef configDef = WebLogicJmsConfig.config;
+    private final ConfigDef configDef = WebLogicJmsSinkConfig.config;
 
     private Map<String, String> configProps;
 

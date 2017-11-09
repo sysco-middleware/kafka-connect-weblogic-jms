@@ -5,7 +5,7 @@ import org.apache.kafka.common.config.ConfigDef;
 /**
  *
  */
-final class WebLogicJmsConfig {
+final class WebLogicJmsSourceConfig {
     static final ConfigDef config =
         new ConfigDef()
             .define(
@@ -54,5 +54,17 @@ final class WebLogicJmsConfig {
                 WebLogicJmsConnector.WEBLOGIC_PASSWORD_CONFIG,
                 ConfigDef.Type.STRING,
                 ConfigDef.Importance.HIGH,
-                WebLogicJmsConnector.WEBLOGIC_PASSWORD_DOC);
+                WebLogicJmsConnector.WEBLOGIC_PASSWORD_DOC)
+            .define(
+                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_CONFIG,
+                ConfigDef.Type.STRING,
+                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_DEFAULT,
+                ConfigDef.Importance.LOW,
+                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_DOC)
+            .define(
+                WebLogicJmsConnector.KAFKA_TOPIC_PREFIX_CONFIG,
+                ConfigDef.Type.STRING,
+                WebLogicJmsConnector.KAFKA_TOPIC_PREFIX_DEFAULT,
+                ConfigDef.Importance.MEDIUM,
+                WebLogicJmsConnector.KAFKA_TOPIC_PREFIX_DOC);
 }

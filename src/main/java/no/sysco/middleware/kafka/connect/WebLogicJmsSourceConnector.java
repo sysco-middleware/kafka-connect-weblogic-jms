@@ -13,20 +13,7 @@ import java.util.Map;
  *
  */
 public class WebLogicJmsSourceConnector extends SourceConnector {
-    private final ConfigDef configDef =
-        WebLogicJmsConfig.config
-            .define(
-                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_CONFIG,
-                ConfigDef.Type.STRING,
-                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_DEFAULT,
-                ConfigDef.Importance.LOW,
-                WebLogicJmsConnector.WEBLOGIC_JMS_SELECTOR_DOC)
-            .define(
-                WebLogicJmsConnector.KAFKA_TOPIC_PREFIX_CONFIG,
-                ConfigDef.Type.STRING,
-                WebLogicJmsConnector.KAFKA_TOPIC_PREFIX_DEFAULT,
-                ConfigDef.Importance.MEDIUM,
-                WebLogicJmsConnector.KAFKA_TOPIC_PREFIX_DOC);
+    private final ConfigDef configDef = WebLogicJmsSourceConfig.config;
 
     private Map<String, String> configProps;
 
